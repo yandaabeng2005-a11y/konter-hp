@@ -1,0 +1,48 @@
+/* Custom Global Stylesheet */
+
+/* Default Font */
+body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Tab & Filter Button Hover Enhancements */
+.tab-btn {
+    user-select: none;
+}
+
+.filter-btn {
+    user-select: none;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* FAQ Icon Smooth Rotation */
+.faq-toggle.active i {
+    transform: rotate(180deg);
+}
+
+/* Smooth Image Scale on Hover */
+.product-card img {
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}

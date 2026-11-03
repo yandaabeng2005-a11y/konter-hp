@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParidaCell - Konter Pulsa, Top Up & Servis HP Terpercaya</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        },
+                        accent: {
+                            500: '#10b981',
+                            600: '#059669',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom External CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-4">
+                <span class="flex items-center gap-1.5"><i class="fa-regular fa-clock text-accent-500"></i> Buka Setiap Hari: 08.00 - 22.00 WIB</span>
+                <span class="hidden md:inline text-slate-600">•</span>
+                <span class="hidden md:flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-brand-500"></i> Melayani Area Sekitar & Online</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Server Pulsa Online
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-200" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-blue-400 flex items-center justify-center text-white shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-bolt text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold tracking-tight text-slate-900 flex items-center gap-1">
+                            Parida<span class="text-brand-600">CELL</span>
+                        </span>
+                        <p class="text-[10px] uppercase font-bold tracking-widest text-slate-400 -mt-1">Cellular & Service</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Menu -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+                    <a href="#layanan" class="hover:text-brand-600 transition-colors">Layanan</a>
+                    <a href="#order-center" class="hover:text-brand-600 transition-colors">Kalkulator & Order</a>
+                    <a href="#katalog" class="hover:text-brand-600 transition-colors">Aksesoris</a>
+                    <a href="#tracking" class="hover:text-brand-600 transition-colors">Cek Status Servis</a>
+                    <a href="#faq" class="hover:text-brand-600 transition-colors">Bantuan</a>
+                </nav>
+
+                <!-- WhatsApp Quick Button & Mobile Menu Toggle -->
+                <div class="flex items-center gap-3">
+                    <a href="https://wa.me/6281234567890" target="_blank" class="hidden sm:inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg font-semibold text-sm shadow-sm hover:shadow transition-all duration-150">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Chat WhatsApp</span>
+                    </a>
+                    <button type="button" id="mobileMenuBtn" aria-label="Buka Menu" class="md:hidden p-2 text-slate-600 hover:text-slate-900 rounded-lg border border-slate-200">
+                        <i class="fa-solid fa-bars text-lg" id="menuIcon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden md:hidden border-b border-slate-200 bg-white px-4 pt-2 pb-4 space-y-1">
+            <a href="#layanan" class="mobile-nav-link block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-slate-50">Layanan</a>
+            <a href="#order-center" class="mobile-nav-link block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-slate-50">Kalkulator & Order</a>
+            <a href="#katalog" class="mobile-nav-link block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-slate-50">Katalog Aksesoris</a>
+            <a href="#tracking" class="mobile-nav-link block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-slate-50">Cek Status Servis</a>
+            <a href="#faq" class="mobile-nav-link block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-slate-50">FAQ / Bantuan</a>
+            <div class="pt-2">
+                <a href="https://wa.me/6281234567890" target="_blank" class="w-full flex items-center justify-center gap-2 bg-emerald-600 text-white px-4 py-2.5 rounded-lg font-medium text-sm">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Hubungi WhatsApp Langsung</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner Section -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-brand-50/70 via-white to-slate-50 pt-12 pb-16 lg:pt-20 lg:pb-24 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-100/80 border border-brand-200 text-brand-700 text-xs font-semibold">
+                        <i class="fa-solid fa-shield-halved text-brand-600"></i> Solusi Digital & Gadget Serba Cepat
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                        Pusat Isi Pulsa, Top Up Kilat & <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-indigo-600">Servis HP Bergaransi</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0">
+                        Beli kuota all operator, top up e-wallet/game hitungan detik, serta perbaikan smartphone ditangani teknisi profesional dengan suku cadang berkualitas.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start pt-2">
+                        <a href="#order-center" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm shadow-md hover:shadow-lg shadow-brand-500/20 transition-all">
+                            <i class="fa-solid fa-cart-shopping"></i> Transaksi Sekarang
+                        </a>
+                        <a href="#tracking" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-slate-700 font-semibold text-sm border border-slate-300 shadow-sm transition-all">
+                            <i class="fa-solid fa-screwdriver-wrench text-brand-600"></i> Cek Servis HP
+                        </a>
+                    </div>
+
+                    <!-- Keunggulan Cepat -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-200 text-left">
+                        <div>
+                            <p class="text-2xl font-extrabold text-slate-900">24/7</p>
+                            <p class="text-xs text-slate-500 font-medium">Sistem Otomatis</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-extrabold text-brand-600">30 Hari</p>
+                            <p class="text-xs text-slate-500 font-medium">Garansi Servis</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-extrabold text-emerald-600">0 Biaya</p>
+                            <p class="text-xs text-slate-500 font-medium">Cek Kerusakan HP</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic Banner -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-sm rounded-3xl bg-white p-6 shadow-xl border border-slate-200/80">
+                        <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
+                                    <i class="fa-solid fa-wallet"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-slate-900">Proses Kilat 1 Detik</h4>
+                                    <p class="text-xs text-slate-400">Jalur Transaksi Prioritas</p>
+                                </div>
+                            </div>
+                            <span class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">Aktif</span>
+                        </div>
+
+                        <!-- Mini Operator Badges Preview -->
+                        <div class="py-4 space-y-3">
+                            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Operator & E-Wallet Didukung:</p>
+                            <div class="grid grid-cols-4 gap-2 text-center text-[11px] font-bold text-slate-600">
+                                <span class="bg-red-50 text-red-700 py-1.5 px-2 rounded-lg border border-red-100">Telkomsel</span>
+                                <span class="bg-yellow-50 text-yellow-700 py-1.5 px-2 rounded-lg border border-yellow-100">Indosat</span>
+                                <span class="bg-blue-50 text-blue-700 py-1.5 px-2 rounded-lg border border-blue-100">XL Axiata</span>
+                                <span class="bg-purple-50 text-purple-700 py-1.5 px-2 rounded-lg border border-purple-100">Tri (3)</span>
+                                <span class="bg-sky-50 text-sky-700 py-1.5 px-2 rounded-lg border border-sky-100">DANA</span>
+                                <span class="bg-green-50 text-green-700 py-1.5 px-2 rounded-lg border border-green-100">GoPay</span>
+                                <span class="bg-purple-50 text-purple-700 py-1.5 px-2 rounded-lg border border-purple-100">OVO</span>
+                                <span class="bg-orange-50 text-orange-700 py-1.5 px-2 rounded-lg border border-orange-100">Shopee</span>
+                            </div>
+                        </div>
+
+                        <!-- Card Servis Promo -->
+                        <div class="mt-2 p-3.5 bg-gradient-to-r from-slate-900 to-slate-800 rounded-xl text-white">
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-amber-400">
+                                    <i class="fa-solid fa-mobile-screen-button"></i>
+                                </div>
+                                <div class="text-xs">
+                                    <p class="font-bold text-amber-300">Ganti LCD & Baterai</p>
+                                    <p class="text-slate-300">Bisa ditunggu, part original</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6 Layanan Utama Section -->
+    <section id="layanan" class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-brand-600 font-bold text-xs uppercase tracking-wider">Layanan Terlengkap</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Solusi Satu Pintu untuk Ponsel Anda</h2>
+                <p class="text-slate-500 text-sm mt-2">Dapatkan layanan terlengkap dengan proses instan, harga transparan, dan garansi resmi toko.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="p-6 rounded-2xl border border-slate-200 hover:border-brand-300 hover:shadow-lg transition-all group bg-white">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 text-brand-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-signal"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-1">Pulsa & Paket Data Internet</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Isi ulang kuota harian, mingguan, bulanan dari Telkomsel, By.U, Indosat, XL, Axis, Smartfren, hingga Tri tanpa jeda.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="p-6 rounded-2xl border border-slate-200 hover:border-brand-300 hover:shadow-lg transition-all group bg-white">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-money-bill-transfer"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-1">Top Up E-Wallet Instan</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Pengisian saldo DANA, GoPay, OVO, ShopeePay, LinkAja, Maxim Driver/Customer biaya admin termurah.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="p-6 rounded-2xl border border-slate-200 hover:border-brand-300 hover:shadow-lg transition-all group bg-white">
+                    <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-1">Voucher & Diamond Game</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Mobile Legends, Free Fire, PUBG Mobile, Roblox, Genshin Impact langsung masuk hanya dengan User ID.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="p-6 rounded-2xl border border-slate-200 hover:border-brand-300 hover:shadow-lg transition-all group bg-white">
+                    <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-1">Servis Hardware HP</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Ganti LCD pecah, ganti baterai drop, konektor charger rusak, speaker mati, tombol on/off tidak fungsi.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="p-6 rounded-2xl border border-slate-200 hover:border-brand-300 hover:shadow-lg transition-all group bg-white">
+                    <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-1">Servis Software & Reset</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Atasi HP mentok logo (bootloop), lupa pola/sandi, bypass akun Google (FRP), flash ulang OS bersih dari virus.</p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="p-6 rounded-2xl border border-slate-200 hover:border-brand-300 hover:shadow-lg transition-all group bg-white">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-plug-circle-bolt"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-1">Aksesoris & Gadget</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Kabel data fast charging, adaptor original, tempered glass presisi, casing pelindung, TWS headset, dan powerbank.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Order Center & Calculator Section -->
+    <section id="order-center" class="py-16 bg-slate-100/70 border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-10">
+                <span class="text-brand-600 font-bold text-xs uppercase tracking-wider">Kalkulator & Form Otomatis</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Pesan Cepat Langsung Terhubung ke WhatsApp</h2>
+                <p class="text-slate-500 text-sm mt-2">Pilih menu, lengkapi data, dan klik tombol untuk mengirimkan format pesanan instan tanpa perlu repot mengetik.</p>
+            </div>
+
+            <!-- Tab Buttons Container -->
+            <div class="bg-white p-2 rounded-2xl shadow-sm border border-slate-200 mb-6 flex flex-wrap gap-2">
+                <button type="button" class="tab-btn flex-1 py-2.5 px-4 rounded-xl text-xs sm:text-sm font-bold transition-all text-white bg-brand-600" data-target="tab-pulsa">
+                    <i class="fa-solid fa-mobile-retro mr-1.5"></i> Pulsa & Data
+                </button>
+                <button type="button" class="tab-btn flex-1 py-2.5 px-4 rounded-xl text-xs sm:text-sm font-bold transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-100" data-target="tab-topup">
+                    <i class="fa-solid fa-wallet mr-1.5"></i> E-Wallet & Game
+                </button>
+                <button type="button" class="tab-btn flex-1 py-2.5 px-4 rounded-xl text-xs sm:text-sm font-bold transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-100" data-target="tab-servis">
+                    <i class="fa-solid fa-calculator mr-1.5"></i> Estimasi Servis HP
+                </button>
+            </div>
+
+            <!-- TAB 1: FORM PULSA & DATA -->
+            <div id="tab-pulsa" class="tab-content bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-md">
+                <form id="formPulsa" class="space-y-5">
+                    <div>
+                        <label for="nomorHp" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Nomor Handphone Tujuan</label>
+                        <div class="relative">
+                            <input type="tel" id="nomorHp" placeholder="Contoh: 081234567890" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-900 font-mono text-base outline-none transition-all" required>
+                            <span id="operatorBadge" class="absolute right-3 top-3 px-2.5 py-1 text-xs font-bold rounded-md bg-slate-100 text-slate-600 hidden">
+                                Operator
+                            </span>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-1">Sistem akan otomatis mendeteksi provider seluler dari 4 angka awal.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="jenisProduk" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Jenis Layanan</label>
+                            <select id="jenisProduk" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-800 text-sm outline-none bg-white">
+                                <option value="Pulsa Reguler">Pulsa Reguler</option>
+                                <option value="Paket Data Internet">Paket Kuota Internet</option>
+                                <option value="Masa Aktif">Perpanjang Masa Aktif</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="nominalPulsa" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Nominal / Paket</label>
+                            <select id="nominalPulsa" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-800 text-sm outline-none bg-white">
+                                <option value="10.000" data-harga="11.500">10.000 (Harga: Rp 11.500)</option>
+                                <option value="20.000" data-harga="21.500">20.000 (Harga: Rp 21.500)</option>
+                                <option value="25.000" data-harga="26.500">25.000 (Harga: Rp 26.500)</option>
+                                <option value="50.000" data-harga="51.500" selected>50.000 (Harga: Rp 51.500)</option>
+                                <option value="100.000" data-harga="101.500">100.000 (Harga: Rp 101.500)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Ringkasan Harga -->
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
+                        <span class="text-sm font-medium text-slate-600">Total Pembayaran:</span>
+                        <span id="totalHargaPulsa" class="text-xl font-extrabold text-brand-600">Rp 51.500</span>
+                    </div>
+
+                    <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-sm transition-all">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Order Pulsa via WhatsApp</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- TAB 2: FORM TOP UP E-WALLET & GAME -->
+            <div id="tab-topup" class="tab-content bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-md hidden">
+                <form id="formTopup" class="space-y-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="platformSelect" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Platform / Game</label>
+                            <select id="platformSelect" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-800 text-sm outline-none bg-white">
+                                <optgroup label="E-Wallet">
+                                    <option value="DANA">DANA Saldo</option>
+                                    <option value="GoPay">GoPay (Customer/Driver)</option>
+                                    <option value="OVO">OVO Cash</option>
+                                    <option value="ShopeePay">ShopeePay</option>
+                                </optgroup>
+                                <optgroup label="Game Online">
+                                    <option value="Mobile Legends">Mobile Legends (Diamonds)</option>
+                                    <option value="Free Fire">Free Fire (Diamonds)</option>
+                                    <option value="PUBG Mobile">PUBG Mobile (UC)</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="akunId" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Nomor HP / User ID Akun</label>
+                            <input type="text" id="akunId" placeholder="Contoh: 0812xxxx / ID Game (Zone)" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-900 font-mono text-sm outline-none" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="nominalTopup" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Pilihan Nominal / Item</label>
+                        <select id="nominalTopup" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-800 text-sm outline-none bg-white">
+                            <option value="Saldo Rp 20.000" data-harga="22.000">Saldo Rp 20.000 (Biaya: Rp 22.000)</option>
+                            <option value="Saldo Rp 50.000" data-harga="52.000" selected>Saldo Rp 50.000 (Biaya: Rp 52.000)</option>
+                            <option value="Saldo Rp 100.000" data-harga="102.000">Saldo Rp 100.000 (Biaya: Rp 102.000)</option>
+                            <option value="86 Diamonds MLBB" data-harga="22.000">86 Diamonds Mobile Legends (Rp 22.000)</option>
+                            <option value="172 Diamonds MLBB" data-harga="43.000">172 Diamonds Mobile Legends (Rp 43.000)</option>
+                            <option value="140 Diamonds Free Fire" data-harga="20.000">140 Diamonds Free Fire (Rp 20.000)</option>
+                        </select>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
+                        <span class="text-sm font-medium text-slate-600">Total Transfer:</span>
+                        <span id="totalHargaTopup" class="text-xl font-extrabold text-brand-600">Rp 52.000</span>
+                    </div>
+
+                    <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-sm transition-all">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Order Top Up via WhatsApp</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- TAB 3: KALKULATOR ESTIMASI BIAYA SERVIS -->
+            <div id="tab-servis" class="tab-content bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-md hidden">
+                <form id="formServis" class="space-y-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="brandHp" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Merek Smartphone</label>
+                            <select id="brandHp" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-800 text-sm outline-none bg-white">
+                                <option value="Xiaomi / Redmi / POCO">Xiaomi / Redmi / POCO</option>
+                                <option value="Samsung">Samsung</option>
+                                <option value="Oppo / Realme">Oppo / Realme</option>
+                                <option value="Vivo">Vivo</option>
+                                <option value="Infinix / Tecno">Infinix / Tecno</option>
+                                <option value="iPhone">iPhone (Apple)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="tipeHp" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Model / Tipe HP</label>
+                            <input type="text" id="tipeHp" placeholder="Contoh: Redmi Note 12 / iPhone 11" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-900 text-sm outline-none" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="jenisKerusakan" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Keluhan / Jenis Kerusakan</label>
+                        <select id="jenisKerusakan" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-800 text-sm outline-none bg-white">
+                            <option value="Ganti LCD / Layar Sentuh" data-range="Rp 180.000 - Rp 450.000">Ganti LCD / Layar Pecah (Mulai Rp 180rb)</option>
+                            <option value="Ganti Baterai Original/OEM" data-range="Rp 120.000 - Rp 250.000">Ganti Baterai Drop/Kembung (Mulai Rp 120rb)</option>
+                            <option value="Port Konektor Charger" data-range="Rp 60.000 - Rp 120.000">Tidak Bisa Dicas / Ganti Port (Mulai Rp 60rb)</option>
+                            <option value="Bootloop / Flash Software" data-range="Rp 50.000 - Rp 100.000">Software: Mentok Logo / Lupa Sandi (Mulai Rp 50rb)</option>
+                            <option value="Speaker / Mic Mati" data-range="Rp 70.000 - Rp 130.000">Suara Hilang / Mic Rusak (Mulai Rp 70rb)</option>
+                            <option value="Mati Total / Kena Air" data-range="Konsultasi & Cek Mesin Terlebih Dahulu">Mati Total / Masuk Air (Cek Mesin Gratis)</option>
+                        </select>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-amber-50 border border-amber-200">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold text-amber-800 uppercase tracking-wide">Estimasi Kisaran Biaya:</span>
+                            <span id="estimasiBiaya" class="text-base font-extrabold text-amber-900">Rp 180.000 - Rp 450.000</span>
+                        </div>
+                        <p class="text-[11px] text-amber-700 mt-1">*Biaya riil menyesuaikan ketersediaan kualitas suku cadang (Grade Original / Crown / OLED). Konsultasi dan pengecekan awal selalu gratis!</p>
+                    </div>
+
+                    <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-sm transition-all">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Konsultasi Kerusakan via WhatsApp</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Katalog Aksesoris HP Section -->
+    <section id="katalog" class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                <div>
+                    <span class="text-brand-600 font-bold text-xs uppercase tracking-wider">Katalog Produk</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Aksesoris Berkualitas</h2>
+                    <p class="text-slate-500 text-sm mt-1">Semua produk sudah dites sebelum dikirim atau dipasang langsung di konter.</p>
+                </div>
+                
+                <!-- Category Filter Buttons -->
+                <div class="flex flex-wrap gap-2" id="filterContainer">
+                    <button type="button" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-white shadow-sm" data-category="all">Semua</button>
+                    <button type="button" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200" data-category="charger">Charger & Kabel</button>
+                    <button type="button" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200" data-category="audio">Audio & TWS</button>
+                    <button type="button" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200" data-category="proteksi">Proteksi HP</button>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div id="productGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+                <!-- Di-render dinamis oleh JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Tracking Status Servis (Mock Check) Section -->
+    <section id="tracking" class="py-16 bg-slate-900 text-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+            <div class="w-12 h-12 rounded-2xl bg-brand-500/20 text-brand-400 flex items-center justify-center mx-auto text-xl mb-4 border border-brand-500/30">
+                <i class="fa-solid fa-receipt"></i>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Cek Perkembangan Servis HP Anda</h2>
+            <p class="text-slate-400 text-sm mt-2 max-w-lg mx-auto">Masukkan nomor nota servis yang tercetak pada tanda terima konter untuk melihat progres pengerjaan.</p>
+
+            <form id="trackingForm" class="mt-8 flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+                <input type="text" id="notaInput" placeholder="Contoh: SRV-2026-001" class="flex-1 px-4 py-3.5 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 font-mono text-sm focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 uppercase" required>
+                <button type="submit" class="px-6 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-sm shadow transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Cek Nota</span>
+                </button>
+            </form>
+
+            <p class="text-xs text-slate-500 mt-2">Tips demo: ketik <span class="text-slate-300 font-mono">SRV-001</span> atau nomor acak lainnya.</p>
+
+            <!-- Result Box -->
+            <div id="trackingResult" class="mt-6 text-left max-w-lg mx-auto p-5 rounded-2xl bg-slate-800/90 border border-slate-700 hidden">
+                <!-- Konten dinamis di-inject via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-10">
+                <span class="text-brand-600 font-bold text-xs uppercase tracking-wider">Pusat Bantuan</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Pertanyaan yang Sering Diajukan</h2>
+            </div>
+
+            <div class="space-y-3">
+                <div class="faq-item border border-slate-200 rounded-xl overflow-hidden">
+                    <button type="button" class="faq-toggle w-full px-5 py-4 text-left font-bold text-slate-800 text-sm flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition-colors">
+                        <span>Berapa lama proses pengisian pulsa dan top up e-wallet?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-answer px-5 py-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200 hidden bg-white">
+                        Sistem kami terkoneksi langsung dengan multi-server distributor resmi. Dalam kondisi normal tanpa gangguan provider, pulsa dan saldo e-wallet masuk dalam rentang 5 hingga 30 detik setelah konfirmasi transfer pembayaran.
+                    </div>
+                </div>
+
+                <div class="faq-item border border-slate-200 rounded-xl overflow-hidden">
+                    <button type="button" class="faq-toggle w-full px-5 py-4 text-left font-bold text-slate-800 text-sm flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition-colors">
+                        <span>Apakah ganti LCD dan baterai handphone bisa ditunggu?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-answer px-5 py-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200 hidden bg-white">
+                        Bisa! Untuk penggantian sparepart umum seperti baterai dan LCD merek mainstream (Samsung, Xiaomi, Oppo, Realme, Vivo, iPhone) pengerjaan memakan waktu sekitar 30 - 90 menit selama stok suku cadang tersedia di toko.
+                    </div>
+                </div>
+
+                <div class="faq-item border border-slate-200 rounded-xl overflow-hidden">
+                    <button type="button" class="faq-toggle w-full px-5 py-4 text-left font-bold text-slate-800 text-sm flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition-colors">
+                        <span>Berapa lama masa garansi servis HP?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-answer px-5 py-4 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200 hidden bg-white">
+                        Kami memberikan garansi pergantian part mulai dari 14 hingga 30 hari. Garansi mencakup fungsi sentuh (touchscreen) dan performa baterai, asalkan segel toko masih utuh dan bukan akibat kelalaian pemakaian (pecah fisik atau kemasukan cairan).
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & Contact Section -->
+    <footer class="bg-slate-950 text-slate-400 text-xs py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="space-y-3 md:col-span-1">
+                <span class="text-lg font-black text-white tracking-tight flex items-center gap-1">
+                    NEXA<span class="text-brand-500">CELL</span>
+                </span>
+                <p class="leading-relaxed">Layanan konter pulsa, data, top up dompet digital terpercaya serta pusat servis handphone bergaransi resmi.</p>
+                <div class="flex items-center gap-3 pt-2">
+                    <a href="#" class="w-8 h-8 rounded-lg bg-slate-900 hover:bg-brand-600 text-white flex items-center justify-center transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-lg bg-slate-900 hover:bg-brand-600 text-white flex items-center justify-center transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-lg bg-slate-900 hover:bg-brand-600 text-white flex items-center justify-center transition-colors"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold uppercase tracking-wider text-[11px] mb-3">Metode Pembayaran</h4>
+                <ul class="space-y-1.5 leading-relaxed">
+                    <li>• QRIS All Payment (Bebas Biaya)</li>
+                    <li>• DANA, GoPay, OVO, ShopeePay</li>
+                    <li>• Transfer Bank (BCA, BRI, Mandiri)</li>
+                    <li>• Tunai di Kasir Konter</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold uppercase tracking-wider text-[11px] mb-3">Kontak & Lokasi</h4>
+                <p class="mb-2"><strong class="text-slate-300">ParidaCell Store:</strong><br>Pancuran Gading, RT 07</p>
+                <p class="mb-1"><i class="fa-solid fa-phone mr-1 text-slate-500"></i> WhatsApp: 0822-4754-8011</p>
+                <p><i class="fa-regular fa-clock mr-1 text-slate-500"></i> Buka 08:00 - 22:00 WIB</p>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold uppercase tracking-wider text-[11px] mb-3">Tautan Singkat</h4>
+                <ul class="space-y-1.5">
+                    <li><a href="#order-center" class="hover:text-white transition-colors">Beli Pulsa & Kuota</a></li>
+                    <li><a href="#order-center" class="hover:text-white transition-colors">Top Up Diamond Game</a></li>
+                    <li><a href="#tracking" class="hover:text-white transition-colors">Lacak Status Nota Servis</a></li>
+                    <li><a href="#katalog" class="hover:text-white transition-colors">Katalog Aksesoris</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-slate-900 text-center flex flex-col sm:flex-row justify-between items-center gap-2">
+            <p>&copy; 2026 ParidaCell. Hak Cipta Dilindungi.</p>
+            <p class="text-slate-600">Dibuat untuk pelayanan cepat dan ramah pelanggan.</p>
+        </div>
+    </footer>
+
+    <!-- Custom External JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
